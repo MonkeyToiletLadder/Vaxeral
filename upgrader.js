@@ -32,7 +32,13 @@ module.exports = {
             upgrader.memory.is_gathering = true;
         }
         if(upgrader.memory.is_gathering) {
-            helpers.haul(upgrader, RESOURCE_ENERGY);
+            let flag = Game.flags[upgrader.memory.target];
+            let target = Game.getObjectById(flag.memory.target_id);
+            if(!_.isUndefined(target.memory.harvester)) {
+                helpers.haul(upgrader, RESOURCE_ENERGY);                
+            } else {
+                
+            }
         } else {
             let rc = Game.rooms[upgrader.memory.room].controller;
             
