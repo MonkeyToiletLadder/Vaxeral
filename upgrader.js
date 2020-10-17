@@ -37,7 +37,11 @@ module.exports = {
             if(!_.isUndefined(target.memory.harvester)) {
                 helpers.haul(upgrader, RESOURCE_ENERGY);                
             } else {
+                let is_harvested = upgrader.harvest(target);
                 
+                if(is_harvested == ERR_NOT_IN_RANGE) {
+                    upgrader.moveTo(target); 
+                }
             }
         } else {
             let rc = Game.rooms[upgrader.memory.room].controller;
