@@ -11,13 +11,17 @@ module.exports = {
         if(_.isUndefined(target)) {
             return consts.ERROR_INVALID_ARGS;   
         }
+        room = Game.rooms[room];
+        if(_.isUndefined(room)) {
+            return consts.ERROR_INVALID_ARGS;   
+        }
         
         if(_.isUndefined(target.memory.harvester)) {
             return consts.ERROR_NO_HARVESTERS;   
         }
         let creep = Date.now();
         
-        let is_spawned = spawn.spawnCreep(body, creep, { memory: { role: 'upgrader', tags: ['hauler'], is_gathering: true, target: target.name } });
+        let is_spawned = spawn.spawnCreep(body, creep, { memory: { role: 'upgrader', tags: ['hauler'], is_gathering: true, target: target.name, room: room.name } });
         
         return is_spawned;
     },
@@ -30,7 +34,7 @@ module.exports = {
         if(upgrader.memory.is_gathering) {
             helpers.haul(upgrader, RESOURCE_ENERGY);
         } else {
-            let rc = upgrader.room.controller;
+            let rc = Game.rooms[upgrader.memory.room].controller;
             
             let is_transfered = upgrader.transfer(rc, RESOURCE_ENERGY);
             
