@@ -30,7 +30,7 @@ module.exports = {
                 helpers.haul(storer, RESOURCE_ENERGY);   
             } else {
                 let is_harvested = storer.harvest(target);
-                
+            }
             if(is_harvested == ERR_NOT_IN_RANGE) {
                 storer.moveTo(target);   
             }
