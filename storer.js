@@ -35,8 +35,8 @@ module.exports = {
                 }
             }
         } else {
-            let stores = storer.room.find(FIND_MY_STRUCTURES, { filter: (s) => { return !_.isUndefined(s.store) && s.store.getUsedCapacity() < s.store.getCapacity(); } })
-            
+            let stores = storer.room.find(FIND_MY_STRUCTURES, { filter: (s) => { return !_.isUndefined(s.store) && s.store.getFreeCapacity(RESOURCE_ENERGY) > 0; } })
+
             let store = stores[0];
             
             let is_transfered = storer.transfer(store, RESOURCE_ENERGY);
