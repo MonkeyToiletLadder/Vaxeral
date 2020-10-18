@@ -1,4 +1,4 @@
-let consts = require('constants.js');
+let consts = require('constants');
 
 module.exports = {
     generate_flags: function(room, find, prefix, args, set_memory) {
