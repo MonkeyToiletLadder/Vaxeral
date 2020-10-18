@@ -1,5 +1,5 @@
 module.exports = {
     ERROR_INVALID_ARGS: -15,
     ERROR_TARGET_BLOCKED: -16,
-    ERROR_NO_HARVESTERS: -17
+    ERROR_NO_TARGETS: -17
 }
