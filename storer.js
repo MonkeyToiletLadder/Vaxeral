@@ -26,7 +26,8 @@ module.exports = {
         if(storer.memory.is_gathering) {
             let flag = Game.flags[storer.memory.target];
             let target = Game.getObjectById(flag.memory.target_id);
-            if(!_.isUndefined(Game.creeps[flag.memory.harvester])) {
+            let harvester = Game.creeps[flag.memory.harvester];
+            if(!_.isUndefined(harvester) && harvester.memory.in_position) {
                 helpers.haul(storer, RESOURCE_ENERGY);   
             } else {
                 let is_harvested = storer.harvest(target);
