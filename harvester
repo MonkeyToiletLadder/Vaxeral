@@ -1,5 +1,5 @@
-let consts = require('constants.js');
-let math = require('math.js');
+let consts = require('constants');
+let math = require('math');
 
 module.exports = {
     spawn: function(spawn, body, target) {
