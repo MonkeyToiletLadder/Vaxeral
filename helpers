@@ -1,4 +1,4 @@
-let math = require('math.js');
+let math = require('math');
 
 module.exports = {
     haul: function(hauler, resource) {
