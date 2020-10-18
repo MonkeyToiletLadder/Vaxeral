@@ -8,8 +8,8 @@ module.exports = {
         }
         if(_.isUndefined(args)) {
             args = {
-                color: 'white',
-                secondaryColor: 'white'
+                color: COLOR_WHITE,
+                secondaryColor: COLOR_WHITE
             }
         }
         let targets = room.find(find);
@@ -17,9 +17,9 @@ module.exports = {
             return consts.ERROR_NO_TARGETS;
         }
         for(let i = 0; i < targets.length; i++) {
-            let name = ${room.name}${prefix}${i};
+            let name = `${room.name}${prefix}${i}`;
             let position = targets[i].pos;
-            room.createFlag(position, name, args.color, args.secondaryColor);
+            console.log(room.createFlag(position, name, args.color, args.secondaryColor));
             set_memory(Game.flags[name], targets[i]);
         }
         return OK;
