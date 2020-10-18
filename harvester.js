@@ -18,7 +18,7 @@ module.exports = {
         let creep = Date.now();
         
         let is_spawned = spawn.spawnCreep(body, creep, { memory: { role: 'harvester', is_gathering: true, in_position: false, target: target.name  } });
-        if(is_spawned = OK) {
+        if(is_spawned == OK) {
             target.memory.harvester = creep;
         }
         return is_spawned;
