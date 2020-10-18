@@ -35,11 +35,11 @@ module.exports = {
                 }
             }
         } else {
-            let stores = storer.room.find(FIND_MY_STRUCTURES, { filter: (s) => { return !s.isUndefined(s.store) && s.store.getUsedCapacity() < s.store.getCapacity(); } })
+            let stores = storer.room.find(FIND_MY_STRUCTURES, { filter: (s) => { return !_.isUndefined(s.store) && s.store.getUsedCapacity() < s.store.getCapacity(); } })
             
             let store = stores[0];
             
-            let is_transfered = storer.tarnsfer(store, RESOURCE_ENERGY);
+            let is_transfered = storer.transfer(store, RESOURCE_ENERGY);
             
             if(is_transfered == ERR_NOT_IN_RANGE) {
                 storer.moveTo(store);   
