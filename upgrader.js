@@ -13,7 +13,7 @@ module.exports = {
         }
         room = Game.rooms[room];
         if(_.isUndefined(room)) {
-            return consts.ERROR_INVALID_ARGS;   
+            return consts.ERROR_INVALID_ARGS;
         }
         let creep = Date.now();
         
@@ -30,7 +30,8 @@ module.exports = {
         if(upgrader.memory.is_gathering) {
             let flag = Game.flags[upgrader.memory.target];
             let target = Game.getObjectById(flag.memory.target_id);
-            if(!_.isUndefined(Game.creeps[flag.memory.harvester])) {
+            let harvester = Game.creeps[flag.memory.harvester];
+            if(!_.isUndefined(harvester) && harvester.memory.in_position) {
                 helpers.haul(upgrader, RESOURCE_ENERGY);                
             } else {
                 let is_harvested = upgrader.harvest(target);
