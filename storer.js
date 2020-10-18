@@ -35,7 +35,7 @@ module.exports = {
                 }
             }
         } else {
-            let stores = storer.pos.find(FIND_MY_STRUCTURES, { filter: (s) => { return !s.isUndefined(s.store) && s.store.getUsedCapacity() < s.store.getCapacity(); } })
+            let stores = storer.room.find(FIND_MY_STRUCTURES, { filter: (s) => { return !s.isUndefined(s.store) && s.store.getUsedCapacity() < s.store.getCapacity(); } })
             
             let store = stores[0];
             
