@@ -1,5 +1,5 @@
-let helpers = require('helpers.js');
-let consts = require('constants.js');
+let helpers = require('helpers');
+let consts = require('constants');
 
 module.exports = {
     spawn: function(spawn, body, target, room) {
