@@ -30,20 +30,20 @@ module.exports = {
         if(upgrader.memory.is_gathering) {
             let flag = Game.flags[upgrader.memory.target];
             let target = Game.getObjectById(flag.memory.target_id);
-            if(!_.isUndefined(target.memory.harvester)) {
+            if(!_.isUndefined(flag.memory.harvester)) {
                 helpers.haul(upgrader, RESOURCE_ENERGY);                
             } else {
                 let is_harvested = upgrader.harvest(target);
-                
                 if(is_harvested == ERR_NOT_IN_RANGE) {
                     upgrader.moveTo(target); 
                 }
             }
         } else {
             let rc = Game.rooms[upgrader.memory.room].controller;
+            console.log(rc);
             
-            let is_transfered = upgrader.transfer(rc, RESOURCE_ENERGY);
-            
+            let is_transfered = upgrader.upgradeController(rc);
+            console.log(is_transfered);
             if(is_transfered == ERR_NOT_IN_RANGE) {
                 upgrader.moveTo(rc);
             }
