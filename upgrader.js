@@ -15,10 +15,6 @@ module.exports = {
         if(_.isUndefined(room)) {
             return consts.ERROR_INVALID_ARGS;   
         }
-        
-        if(_.isUndefined(target.memory.harvester)) {
-            return consts.ERROR_NO_HARVESTERS;   
-        }
         let creep = Date.now();
         
         let is_spawned = spawn.spawnCreep(body, creep, { memory: { role: 'upgrader', tags: ['hauler'], is_gathering: true, target: target.name, room: room.name } });
